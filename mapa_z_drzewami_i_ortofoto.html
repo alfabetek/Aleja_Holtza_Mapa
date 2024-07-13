@@ -1,0 +1,2634 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_88e6be1ac2033a378c0617fbb119fdd9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+     <div style="position: fixed; 
+                 bottom: 50px; left: 50px; width: 250px; height: 275px; 
+                 background-color: white; border: 2px solid grey; z-index: 1000; font-size: 12px; padding: 10px;">
+         <strong> Legend </strong> <br>
+         Kasztanowiec pospolity &nbsp; <i class="fa fa-map-marker fa-2x" style="color:green"></i><br>
+         Jesion wyniosły &nbsp; <i class="fa fa-map-marker fa-2x" style="color:red"></i><br>
+         Brzoza brodawkowata &nbsp; <i class="fa fa-map-marker fa-2x" style="color:blue"></i><br>
+         Robinia akacjowa &nbsp; <i class="fa fa-map-marker fa-2x" style="color:orange"></i><br>
+         Dąb bezszypułkowy &nbsp; <i class="fa fa-map-marker fa-2x" style="color:white"></i><br>
+         Dąb szypułkowy &nbsp; <i class="fa fa-map-marker fa-2x" style="color:pink"></i><br>
+         Lipa drobnolistna &nbsp; <i class="fa fa-map-marker fa-2x" style="color:darkpurple"></i><br>
+         Klon zwyczajny &nbsp; <i class="fa fa-map-marker fa-2x" style="color:cadetblue"></i><br>
+         Olsza czarna &nbsp; <i class="fa fa-map-marker fa-2x" style="color:black"></i><br>
+     </div>
+    
+            <div class="folium-map" id="map_88e6be1ac2033a378c0617fbb119fdd9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_88e6be1ac2033a378c0617fbb119fdd9 = L.map(
+                "map_88e6be1ac2033a378c0617fbb119fdd9",
+                {
+                    center: [50.15285090243228, 18.913502844951477],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_2bbcea2e910cc152e1998044f16e79c0 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_2bbcea2e910cc152e1998044f16e79c0.addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var macro_element_a8b4b70dc715462c12571e0516d2e9e5 = L.tileLayer.wms(
+                "https://mapy.geoportal.gov.pl/wss/service/PZGIK/ORTO/WMS/HighResolution",
+                {"attribution": "", "format": "image/png", "layers": "Raster", "styles": "", "transparent": false, "version": "1.1.1"}
+            );
+        
+    
+            macro_element_a8b4b70dc715462c12571e0516d2e9e5.addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var marker_2c6cbc97bef7930a3376cef10f08bdae = L.marker(
+                [50.15441106746076, 18.912609815597538],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_b1d465e6a5e638463968b5acbfaa732c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_2c6cbc97bef7930a3376cef10f08bdae.setIcon(icon_b1d465e6a5e638463968b5acbfaa732c);
+        
+    
+        var popup_b4900c1909916332ea051645cffa09d7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_392b263d90b126ad7208a10f6fc39c29 = $(`<div id="html_392b263d90b126ad7208a10f6fc39c29" style="width: 100.0%; height: 100.0%;">Kasztanowiec pospolity (Obwód: 191 cm)</div>`)[0];
+                popup_b4900c1909916332ea051645cffa09d7.setContent(html_392b263d90b126ad7208a10f6fc39c29);
+            
+        
+
+        marker_2c6cbc97bef7930a3376cef10f08bdae.bindPopup(popup_b4900c1909916332ea051645cffa09d7)
+        ;
+
+        
+    
+    
+            var marker_194b0d20bd5b186ff4057802118b1ad1 = L.marker(
+                [50.154353496097855, 18.912647366523743],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_0d48b8c1fafaf9aca7b6ecb88e2f912f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_194b0d20bd5b186ff4057802118b1ad1.setIcon(icon_0d48b8c1fafaf9aca7b6ecb88e2f912f);
+        
+    
+        var popup_7d3e3842ed08d4c7fdc3277cda31579a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_00bab10ea0a7c9663648e112517e3439 = $(`<div id="html_00bab10ea0a7c9663648e112517e3439" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 91 cm)</div>`)[0];
+                popup_7d3e3842ed08d4c7fdc3277cda31579a.setContent(html_00bab10ea0a7c9663648e112517e3439);
+            
+        
+
+        marker_194b0d20bd5b186ff4057802118b1ad1.bindPopup(popup_7d3e3842ed08d4c7fdc3277cda31579a)
+        ;
+
+        
+    
+    
+            var marker_02e9733141831a77110203b4376edbe4 = L.marker(
+                [50.15422374545862, 18.912711739540104],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_346135715083414e4dc8598b890be770 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_02e9733141831a77110203b4376edbe4.setIcon(icon_346135715083414e4dc8598b890be770);
+        
+    
+        var popup_280f8ab304b9ea69ff061d6f2b2c9fc1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a56fd60339709d155b359c42db8bbcd1 = $(`<div id="html_a56fd60339709d155b359c42db8bbcd1" style="width: 100.0%; height: 100.0%;">Robinia akacjowa (Obwód: 194 cm)</div>`)[0];
+                popup_280f8ab304b9ea69ff061d6f2b2c9fc1.setContent(html_a56fd60339709d155b359c42db8bbcd1);
+            
+        
+
+        marker_02e9733141831a77110203b4376edbe4.bindPopup(popup_280f8ab304b9ea69ff061d6f2b2c9fc1)
+        ;
+
+        
+    
+    
+            var marker_51b3cfa4aded11aed43044d579997743 = L.marker(
+                [50.15417047025975, 18.912746608257297],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_71d750dcc352bbf2da83f0be75a62679 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_51b3cfa4aded11aed43044d579997743.setIcon(icon_71d750dcc352bbf2da83f0be75a62679);
+        
+    
+        var popup_26320d9f8109d4f379ee1ab7701641cd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9d890af4922c0ecbe41c64ba6b453ac3 = $(`<div id="html_9d890af4922c0ecbe41c64ba6b453ac3" style="width: 100.0%; height: 100.0%;">Robinia akacjowa (Obwód: 200 cm)</div>`)[0];
+                popup_26320d9f8109d4f379ee1ab7701641cd.setContent(html_9d890af4922c0ecbe41c64ba6b453ac3);
+            
+        
+
+        marker_51b3cfa4aded11aed43044d579997743.bindPopup(popup_26320d9f8109d4f379ee1ab7701641cd)
+        ;
+
+        
+    
+    
+            var marker_c476817e7c5f138bde3da4e0f12b6527 = L.marker(
+                [50.15407208284129, 18.912796229124076],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_e23cefa635f37917e50d54eb52e6a1a0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_c476817e7c5f138bde3da4e0f12b6527.setIcon(icon_e23cefa635f37917e50d54eb52e6a1a0);
+        
+    
+        var popup_db4129d66dc37546b6a86969c3fb5f5a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_935fd0ebd3dfb10ed04e24d2518c310a = $(`<div id="html_935fd0ebd3dfb10ed04e24d2518c310a" style="width: 100.0%; height: 100.0%;">Kasztanowiec pospolity (Obwód: 214 cm)</div>`)[0];
+                popup_db4129d66dc37546b6a86969c3fb5f5a.setContent(html_935fd0ebd3dfb10ed04e24d2518c310a);
+            
+        
+
+        marker_c476817e7c5f138bde3da4e0f12b6527.bindPopup(popup_db4129d66dc37546b6a86969c3fb5f5a)
+        ;
+
+        
+    
+    
+            var marker_58df56f16d57046e5cc13e570f990b6c = L.marker(
+                [50.15398142875249, 18.91284048557282],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_e35a3fe809fb459be1050456bf559269 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_58df56f16d57046e5cc13e570f990b6c.setIcon(icon_e35a3fe809fb459be1050456bf559269);
+        
+    
+        var popup_eaef6e29a0b6c14a0088ecaa989bf79c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4b40ab4aa67fceb058f35ad383b9af79 = $(`<div id="html_4b40ab4aa67fceb058f35ad383b9af79" style="width: 100.0%; height: 100.0%;">Kasztanowiec pospolity (Obwód: 192 cm)</div>`)[0];
+                popup_eaef6e29a0b6c14a0088ecaa989bf79c.setContent(html_4b40ab4aa67fceb058f35ad383b9af79);
+            
+        
+
+        marker_58df56f16d57046e5cc13e570f990b6c.bindPopup(popup_eaef6e29a0b6c14a0088ecaa989bf79c)
+        ;
+
+        
+    
+    
+            var marker_10107d61a9d4028c897d953122a748e2 = L.marker(
+                [50.15383706928006, 18.91289412975312],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_d51d10ef541029c6ab3efa87a81f3e94 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_10107d61a9d4028c897d953122a748e2.setIcon(icon_d51d10ef541029c6ab3efa87a81f3e94);
+        
+    
+        var popup_cf5d6917382b488330280ab2cbfce4a8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_805436476ae44fa2a16ba8c076cf6862 = $(`<div id="html_805436476ae44fa2a16ba8c076cf6862" style="width: 100.0%; height: 100.0%;">Kasztanowiec pospolity (Obwód: 216 cm)</div>`)[0];
+                popup_cf5d6917382b488330280ab2cbfce4a8.setContent(html_805436476ae44fa2a16ba8c076cf6862);
+            
+        
+
+        marker_10107d61a9d4028c897d953122a748e2.bindPopup(popup_cf5d6917382b488330280ab2cbfce4a8)
+        ;
+
+        
+    
+    
+            var marker_bb4d6bcbc502136be2c270ca268c812f = L.marker(
+                [50.15368239793303, 18.912977278232574],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_6276b846e76b7a38a7a95338b830d74b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_bb4d6bcbc502136be2c270ca268c812f.setIcon(icon_6276b846e76b7a38a7a95338b830d74b);
+        
+    
+        var popup_4d70d6d230c2aa93449a4a148df094a0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_19e7eafa424d0813f64642d06c43b84d = $(`<div id="html_19e7eafa424d0813f64642d06c43b84d" style="width: 100.0%; height: 100.0%;">Robinia akacjowa (Obwód: 272 cm)</div>`)[0];
+                popup_4d70d6d230c2aa93449a4a148df094a0.setContent(html_19e7eafa424d0813f64642d06c43b84d);
+            
+        
+
+        marker_bb4d6bcbc502136be2c270ca268c812f.bindPopup(popup_4d70d6d230c2aa93449a4a148df094a0)
+        ;
+
+        
+    
+    
+            var marker_62ef9e9457f2828eb972b5abf6d17882 = L.marker(
+                [50.153584439154514, 18.913041651248932],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_b4e8dd704fd786f0bf5a307559db9e5a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_62ef9e9457f2828eb972b5abf6d17882.setIcon(icon_b4e8dd704fd786f0bf5a307559db9e5a);
+        
+    
+        var popup_8adba210a8a1ff2abccf7e9baa95c718 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_be173c68174b556a0351f05cd6cd6d51 = $(`<div id="html_be173c68174b556a0351f05cd6cd6d51" style="width: 100.0%; height: 100.0%;">Robinia akacjowa (Obwód: 192 cm)</div>`)[0];
+                popup_8adba210a8a1ff2abccf7e9baa95c718.setContent(html_be173c68174b556a0351f05cd6cd6d51);
+            
+        
+
+        marker_62ef9e9457f2828eb972b5abf6d17882.bindPopup(popup_8adba210a8a1ff2abccf7e9baa95c718)
+        ;
+
+        
+    
+    
+            var marker_4decae55e63293fcf5f033fb0183afb1 = L.marker(
+                [50.15351088043829, 18.91306489707404],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_a4adf44e1a587bdf050ee892d64da416 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_4decae55e63293fcf5f033fb0183afb1.setIcon(icon_a4adf44e1a587bdf050ee892d64da416);
+        
+    
+        var popup_e70299c7516bffba0e938218ae23ad96 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_95d538be9260be6371cbf9de80731f38 = $(`<div id="html_95d538be9260be6371cbf9de80731f38" style="width: 100.0%; height: 100.0%;">Kasztanowiec pospolity (Obwód: 205 cm)</div>`)[0];
+                popup_e70299c7516bffba0e938218ae23ad96.setContent(html_95d538be9260be6371cbf9de80731f38);
+            
+        
+
+        marker_4decae55e63293fcf5f033fb0183afb1.bindPopup(popup_e70299c7516bffba0e938218ae23ad96)
+        ;
+
+        
+    
+    
+            var marker_c11007bee1a0e37278b1cf2955b56121 = L.marker(
+                [50.15344213721023, 18.91308456659317],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_6d85da0012f05d8c4955f9a7fdfdd9de = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_c11007bee1a0e37278b1cf2955b56121.setIcon(icon_6d85da0012f05d8c4955f9a7fdfdd9de);
+        
+    
+        var popup_624899af1a21bc498d435f042e24552a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e6f8fae189117878730425aa96e07599 = $(`<div id="html_e6f8fae189117878730425aa96e07599" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 192 cm)</div>`)[0];
+                popup_624899af1a21bc498d435f042e24552a.setContent(html_e6f8fae189117878730425aa96e07599);
+            
+        
+
+        marker_c11007bee1a0e37278b1cf2955b56121.bindPopup(popup_624899af1a21bc498d435f042e24552a)
+        ;
+
+        
+    
+    
+            var marker_887fe43c3b0968a4b8ab67f2d384037e = L.marker(
+                [50.1533601643532, 18.91314491629601],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_6efa265bb343d9e5d941666ff5057ffc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_887fe43c3b0968a4b8ab67f2d384037e.setIcon(icon_6efa265bb343d9e5d941666ff5057ffc);
+        
+    
+        var popup_eefe00a922019b305a79daa70a73d457 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_432a059691ca5300097ad5d4e2f5f4e5 = $(`<div id="html_432a059691ca5300097ad5d4e2f5f4e5" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 120 cm)</div>`)[0];
+                popup_eefe00a922019b305a79daa70a73d457.setContent(html_432a059691ca5300097ad5d4e2f5f4e5);
+            
+        
+
+        marker_887fe43c3b0968a4b8ab67f2d384037e.bindPopup(popup_eefe00a922019b305a79daa70a73d457)
+        ;
+
+        
+    
+    
+            var marker_62d86483d1229e27369d85849fe06010 = L.marker(
+                [50.15336532010757, 18.913185149431232],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_3af26e6dc94629695618e857e14974f8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_62d86483d1229e27369d85849fe06010.setIcon(icon_3af26e6dc94629695618e857e14974f8);
+        
+    
+        var popup_b890ea2999ef46a96f6e7a66fcc49b53 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9f8c6907e2b265a7d32d83ea4f77cd3b = $(`<div id="html_9f8c6907e2b265a7d32d83ea4f77cd3b" style="width: 100.0%; height: 100.0%;">Robinia akacjowa (Obwód: 168 cm)</div>`)[0];
+                popup_b890ea2999ef46a96f6e7a66fcc49b53.setContent(html_9f8c6907e2b265a7d32d83ea4f77cd3b);
+            
+        
+
+        marker_62d86483d1229e27369d85849fe06010.bindPopup(popup_b890ea2999ef46a96f6e7a66fcc49b53)
+        ;
+
+        
+    
+    
+            var marker_84d8ad222255e28805277ebfd59bc227 = L.marker(
+                [50.1532158566848, 18.913258910179135],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_58cb7f6f75049e520ccef4c7381b2f8f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_84d8ad222255e28805277ebfd59bc227.setIcon(icon_58cb7f6f75049e520ccef4c7381b2f8f);
+        
+    
+        var popup_9a41056466221d9eec0fa10c70236ce5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_70a8546ec1784c2c46f2867f32addb2f = $(`<div id="html_70a8546ec1784c2c46f2867f32addb2f" style="width: 100.0%; height: 100.0%;">Robinia akacjowa (Obwód: 217 cm)</div>`)[0];
+                popup_9a41056466221d9eec0fa10c70236ce5.setContent(html_70a8546ec1784c2c46f2867f32addb2f);
+            
+        
+
+        marker_84d8ad222255e28805277ebfd59bc227.bindPopup(popup_9a41056466221d9eec0fa10c70236ce5)
+        ;
+
+        
+    
+    
+            var marker_729029994a1050d2bd789f9c0be9e30c = L.marker(
+                [50.15312305273094, 18.913287520422276],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_206502a00f07607517f4dbaa1832a9ca = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_729029994a1050d2bd789f9c0be9e30c.setIcon(icon_206502a00f07607517f4dbaa1832a9ca);
+        
+    
+        var popup_551391807ad35ad0db8dd9afb5d9df16 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6ff44f4e4a8c9f1eb6502548d532dac1 = $(`<div id="html_6ff44f4e4a8c9f1eb6502548d532dac1" style="width: 100.0%; height: 100.0%;">Kasztanowiec pospolity (Obwód: 192 cm)</div>`)[0];
+                popup_551391807ad35ad0db8dd9afb5d9df16.setContent(html_6ff44f4e4a8c9f1eb6502548d532dac1);
+            
+        
+
+        marker_729029994a1050d2bd789f9c0be9e30c.bindPopup(popup_551391807ad35ad0db8dd9afb5d9df16)
+        ;
+
+        
+    
+    
+            var marker_0a9f46cbe7a5b68a849b1c424064eb29 = L.marker(
+                [50.15304858032704, 18.913309872150425],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_3bc4cd15a1df6a10e788b3f63558a628 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_0a9f46cbe7a5b68a849b1c424064eb29.setIcon(icon_3bc4cd15a1df6a10e788b3f63558a628);
+        
+    
+        var popup_ece9db10428470dd9e4e3eeac85137d9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_440d423638f8aa5a1603591a6ba5d5e3 = $(`<div id="html_440d423638f8aa5a1603591a6ba5d5e3" style="width: 100.0%; height: 100.0%;">Robinia akacjowa (Obwód: 225 cm)</div>`)[0];
+                popup_ece9db10428470dd9e4e3eeac85137d9.setContent(html_440d423638f8aa5a1603591a6ba5d5e3);
+            
+        
+
+        marker_0a9f46cbe7a5b68a849b1c424064eb29.bindPopup(popup_ece9db10428470dd9e4e3eeac85137d9)
+        ;
+
+        
+    
+    
+            var marker_482ebf06190536aae1839318ee484571 = L.marker(
+                [50.15296723341158, 18.91338050364084],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_1821087212fb1e759c39ed6fe9f2ea9b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_482ebf06190536aae1839318ee484571.setIcon(icon_1821087212fb1e759c39ed6fe9f2ea9b);
+        
+    
+        var popup_7b611e79e21ef520709c8d2c47b8bcc3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0418edc3dda5ccd72436bd62464f8141 = $(`<div id="html_0418edc3dda5ccd72436bd62464f8141" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 176 cm)</div>`)[0];
+                popup_7b611e79e21ef520709c8d2c47b8bcc3.setContent(html_0418edc3dda5ccd72436bd62464f8141);
+            
+        
+
+        marker_482ebf06190536aae1839318ee484571.bindPopup(popup_7b611e79e21ef520709c8d2c47b8bcc3)
+        ;
+
+        
+    
+    
+            var marker_483684b6bd2d16cefa3dcb9a08aae27e = L.marker(
+                [50.15289528488244, 18.91341447830201],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_5bcd4c78bfabf3a38f9cdd739c9013ae = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_483684b6bd2d16cefa3dcb9a08aae27e.setIcon(icon_5bcd4c78bfabf3a38f9cdd739c9013ae);
+        
+    
+        var popup_df7c000d02a96dec9063dc66a8098309 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2bde3cb535078a957182c45b4655236c = $(`<div id="html_2bde3cb535078a957182c45b4655236c" style="width: 100.0%; height: 100.0%;">Robinia akacjowa (Obwód: 205 cm)</div>`)[0];
+                popup_df7c000d02a96dec9063dc66a8098309.setContent(html_2bde3cb535078a957182c45b4655236c);
+            
+        
+
+        marker_483684b6bd2d16cefa3dcb9a08aae27e.bindPopup(popup_df7c000d02a96dec9063dc66a8098309)
+        ;
+
+        
+    
+    
+            var marker_362e9e037448817a70801c0462b25b24 = L.marker(
+                [50.152757796557445, 18.913489580154422],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_4cb9c593d0386d9e3790f2e130580d23 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_362e9e037448817a70801c0462b25b24.setIcon(icon_4cb9c593d0386d9e3790f2e130580d23);
+        
+    
+        var popup_14c1fbf4a93c47874e1bf55ca8746fa2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4c9f59b50c35064584d1f2a199891cee = $(`<div id="html_4c9f59b50c35064584d1f2a199891cee" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 411 cm)</div>`)[0];
+                popup_14c1fbf4a93c47874e1bf55ca8746fa2.setContent(html_4c9f59b50c35064584d1f2a199891cee);
+            
+        
+
+        marker_362e9e037448817a70801c0462b25b24.bindPopup(popup_14c1fbf4a93c47874e1bf55ca8746fa2)
+        ;
+
+        
+    
+    
+            var marker_17f80bfc130581341312eb321994224d = L.marker(
+                [50.15267106058154, 18.913508355617527],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_83c83131ef0e9e9edb62e157bedc2de0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_17f80bfc130581341312eb321994224d.setIcon(icon_83c83131ef0e9e9edb62e157bedc2de0);
+        
+    
+        var popup_54251654f6883874a79ff46ca21d63fb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f3d4d26f97d2c06d36fac40d7e148042 = $(`<div id="html_f3d4d26f97d2c06d36fac40d7e148042" style="width: 100.0%; height: 100.0%;">Robinia akacjowa (Obwód: 215 cm)</div>`)[0];
+                popup_54251654f6883874a79ff46ca21d63fb.setContent(html_f3d4d26f97d2c06d36fac40d7e148042);
+            
+        
+
+        marker_17f80bfc130581341312eb321994224d.bindPopup(popup_54251654f6883874a79ff46ca21d63fb)
+        ;
+
+        
+    
+    
+            var marker_eb08b422f74bcfd77210298799244d8a = L.marker(
+                [50.1526206479877, 18.91353517770768],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_be934188096277e09954f6ef3d906d76 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_eb08b422f74bcfd77210298799244d8a.setIcon(icon_be934188096277e09954f6ef3d906d76);
+        
+    
+        var popup_51df5928e3cbd3ca998951fae0d3080d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_dce376067252df4d2665cf7a59d37938 = $(`<div id="html_dce376067252df4d2665cf7a59d37938" style="width: 100.0%; height: 100.0%;">Robinia akacjowa (Obwód: 177 cm)</div>`)[0];
+                popup_51df5928e3cbd3ca998951fae0d3080d.setContent(html_dce376067252df4d2665cf7a59d37938);
+            
+        
+
+        marker_eb08b422f74bcfd77210298799244d8a.bindPopup(popup_51df5928e3cbd3ca998951fae0d3080d)
+        ;
+
+        
+    
+    
+            var marker_088f2dc245448b0fe18d7a28f18c0817 = L.marker(
+                [50.152533571611805, 18.91359150409699],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_4692c501f0e028c8a16f5b7be4f65f38 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_088f2dc245448b0fe18d7a28f18c0817.setIcon(icon_4692c501f0e028c8a16f5b7be4f65f38);
+        
+    
+        var popup_85a92ce78737304c6916209d65869476 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_684afdf35da8c8435b930f77234e6382 = $(`<div id="html_684afdf35da8c8435b930f77234e6382" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 366 cm)</div>`)[0];
+                popup_85a92ce78737304c6916209d65869476.setContent(html_684afdf35da8c8435b930f77234e6382);
+            
+        
+
+        marker_088f2dc245448b0fe18d7a28f18c0817.bindPopup(popup_85a92ce78737304c6916209d65869476)
+        ;
+
+        
+    
+    
+            var marker_44b3dc2269d1692bf208f66e05e6aae0 = L.marker(
+                [50.152496907802295, 18.913612067672148],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_c3ebccddd77cb19050c397e26a7f31e4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_44b3dc2269d1692bf208f66e05e6aae0.setIcon(icon_c3ebccddd77cb19050c397e26a7f31e4);
+        
+    
+        var popup_82053eb047e4793c555d28e6b3f19fc8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_61e24f096824e6837a6bac46b469df0f = $(`<div id="html_61e24f096824e6837a6bac46b469df0f" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 120 cm)</div>`)[0];
+                popup_82053eb047e4793c555d28e6b3f19fc8.setContent(html_61e24f096824e6837a6bac46b469df0f);
+            
+        
+
+        marker_44b3dc2269d1692bf208f66e05e6aae0.bindPopup(popup_82053eb047e4793c555d28e6b3f19fc8)
+        ;
+
+        
+    
+    
+            var marker_1fbf0ece74590c15041c382149f5b2e4 = L.marker(
+                [50.15245360223346, 18.91363710165024],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_83440c8821f27b795c5f32287b11305a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_1fbf0ece74590c15041c382149f5b2e4.setIcon(icon_83440c8821f27b795c5f32287b11305a);
+        
+    
+        var popup_e2b5537fa6fc29672e71f02426744f4d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8720a2103c27dc73dc21bd5c941b2e12 = $(`<div id="html_8720a2103c27dc73dc21bd5c941b2e12" style="width: 100.0%; height: 100.0%;">Robinia akacjowa (Obwód: 247 cm)</div>`)[0];
+                popup_e2b5537fa6fc29672e71f02426744f4d.setContent(html_8720a2103c27dc73dc21bd5c941b2e12);
+            
+        
+
+        marker_1fbf0ece74590c15041c382149f5b2e4.bindPopup(popup_e2b5537fa6fc29672e71f02426744f4d)
+        ;
+
+        
+    
+    
+            var marker_ccea9ab97c98b3a24a5ebf90c4bb4df5 = L.marker(
+                [50.15230408228015, 18.913848996162415],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_bdeac9a2f984c5213e7ab112f4ef22f5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ccea9ab97c98b3a24a5ebf90c4bb4df5.setIcon(icon_bdeac9a2f984c5213e7ab112f4ef22f5);
+        
+    
+        var popup_94132ff3d5e99bd957c33fcc3f390a1e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_da25479ffeee4c0c23f2f871757c9a0e = $(`<div id="html_da25479ffeee4c0c23f2f871757c9a0e" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 137 cm)</div>`)[0];
+                popup_94132ff3d5e99bd957c33fcc3f390a1e.setContent(html_da25479ffeee4c0c23f2f871757c9a0e);
+            
+        
+
+        marker_ccea9ab97c98b3a24a5ebf90c4bb4df5.bindPopup(popup_94132ff3d5e99bd957c33fcc3f390a1e)
+        ;
+
+        
+    
+    
+            var marker_a345134b9c39ddba864f08d8dbeba86a = L.marker(
+                [50.1522353373171, 18.913865089416507],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_6f1a2692bbd4c7548b830c8cce4d1335 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_a345134b9c39ddba864f08d8dbeba86a.setIcon(icon_6f1a2692bbd4c7548b830c8cce4d1335);
+        
+    
+        var popup_07c22dc227ef8db0d8180cc722ab2bd2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a28d730aa9dcc9dcc9129a437d011542 = $(`<div id="html_a28d730aa9dcc9dcc9129a437d011542" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 143 cm)</div>`)[0];
+                popup_07c22dc227ef8db0d8180cc722ab2bd2.setContent(html_a28d730aa9dcc9dcc9129a437d011542);
+            
+        
+
+        marker_a345134b9c39ddba864f08d8dbeba86a.bindPopup(popup_07c22dc227ef8db0d8180cc722ab2bd2)
+        ;
+
+        
+    
+    
+            var marker_185ceba7b73f96828fbd196d272ac4a5 = L.marker(
+                [50.150856174349954, 18.91448199748993],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_4b3ab562251cace17821cc9303bee46c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_185ceba7b73f96828fbd196d272ac4a5.setIcon(icon_4b3ab562251cace17821cc9303bee46c);
+        
+    
+        var popup_23d29bf8beae5afd693558b990f9a29c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d2550bf3e6c0e779a33bc19d78559345 = $(`<div id="html_d2550bf3e6c0e779a33bc19d78559345" style="width: 100.0%; height: 100.0%;">Brzoza brodawkowata (Obwód: 184 cm)</div>`)[0];
+                popup_23d29bf8beae5afd693558b990f9a29c.setContent(html_d2550bf3e6c0e779a33bc19d78559345);
+            
+        
+
+        marker_185ceba7b73f96828fbd196d272ac4a5.bindPopup(popup_23d29bf8beae5afd693558b990f9a29c)
+        ;
+
+        
+    
+    
+            var marker_edb040b811ca909f45ab454aa4b64cf6 = L.marker(
+                [50.15109506956139, 18.914610743522648],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_203167ada04379685e9288b1f109d31e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_edb040b811ca909f45ab454aa4b64cf6.setIcon(icon_203167ada04379685e9288b1f109d31e);
+        
+    
+        var popup_d81b0bab39e717e924bafc1ef9b93f57 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_263612701867894b3f845aa6d161326a = $(`<div id="html_263612701867894b3f845aa6d161326a" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 297 cm)</div>`)[0];
+                popup_d81b0bab39e717e924bafc1ef9b93f57.setContent(html_263612701867894b3f845aa6d161326a);
+            
+        
+
+        marker_edb040b811ca909f45ab454aa4b64cf6.bindPopup(popup_d81b0bab39e717e924bafc1ef9b93f57)
+        ;
+
+        
+    
+    
+            var marker_c3a1bf578aca39da9946ae9094f78298 = L.marker(
+                [50.15119589786013, 18.91459465026856],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_84e7cb39cdb473f5ed42df49da9bab09 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_c3a1bf578aca39da9946ae9094f78298.setIcon(icon_84e7cb39cdb473f5ed42df49da9bab09);
+        
+    
+        var popup_bcb7fd22e9885514657b9aeac51ee664 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_737d159d4f4fdda3a574b59cdbee9760 = $(`<div id="html_737d159d4f4fdda3a574b59cdbee9760" style="width: 100.0%; height: 100.0%;">Robinia akacjowa (Obwód: 161 cm)</div>`)[0];
+                popup_bcb7fd22e9885514657b9aeac51ee664.setContent(html_737d159d4f4fdda3a574b59cdbee9760);
+            
+        
+
+        marker_c3a1bf578aca39da9946ae9094f78298.bindPopup(popup_bcb7fd22e9885514657b9aeac51ee664)
+        ;
+
+        
+    
+    
+            var marker_5e46c18490ce269cf9fd75f26e906119 = L.marker(
+                [50.15136914231517, 18.91484677791596],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_fc187d317228b368b91387d6edc36249 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "white", "prefix": "glyphicon"}
+            );
+            marker_5e46c18490ce269cf9fd75f26e906119.setIcon(icon_fc187d317228b368b91387d6edc36249);
+        
+    
+        var popup_503a044d079f2cee75ae7500faf140d1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f61326e5c61e4ad4e447d6f758a18347 = $(`<div id="html_f61326e5c61e4ad4e447d6f758a18347" style="width: 100.0%; height: 100.0%;">Dąb bezszypułkowy (Obwód: 297 cm)</div>`)[0];
+                popup_503a044d079f2cee75ae7500faf140d1.setContent(html_f61326e5c61e4ad4e447d6f758a18347);
+            
+        
+
+        marker_5e46c18490ce269cf9fd75f26e906119.bindPopup(popup_503a044d079f2cee75ae7500faf140d1)
+        ;
+
+        
+    
+    
+            var marker_bb0a5d7cfaa07aec874a14b400e04026 = L.marker(
+                [50.151396640810354, 18.914937973022464],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_4f6702cd371589253d880b737eb1273b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "white", "prefix": "glyphicon"}
+            );
+            marker_bb0a5d7cfaa07aec874a14b400e04026.setIcon(icon_4f6702cd371589253d880b737eb1273b);
+        
+    
+        var popup_b25bf89600ad0d42c32318fbf092f8bd = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2769f47aec9c292e821e5ba557820c6d = $(`<div id="html_2769f47aec9c292e821e5ba557820c6d" style="width: 100.0%; height: 100.0%;">Dąb bezszypułkowy (Obwód: 255 cm)</div>`)[0];
+                popup_b25bf89600ad0d42c32318fbf092f8bd.setContent(html_2769f47aec9c292e821e5ba557820c6d);
+            
+        
+
+        marker_bb0a5d7cfaa07aec874a14b400e04026.bindPopup(popup_b25bf89600ad0d42c32318fbf092f8bd)
+        ;
+
+        
+    
+    
+            var marker_a66ee0006706f2c205466b7d26e535f7 = L.marker(
+                [50.15134164380419, 18.91492187976837],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_4388a1f617a6c769e33fdbf81d8a36c6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_a66ee0006706f2c205466b7d26e535f7.setIcon(icon_4388a1f617a6c769e33fdbf81d8a36c6);
+        
+    
+        var popup_e2be64ca6bf9d8812ce1f42fb38fbd27 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1c5c1b248cba1cca7cd7066290a327c9 = $(`<div id="html_1c5c1b248cba1cca7cd7066290a327c9" style="width: 100.0%; height: 100.0%;">Olsza czarna (Obwód: 172 cm)</div>`)[0];
+                popup_e2be64ca6bf9d8812ce1f42fb38fbd27.setContent(html_1c5c1b248cba1cca7cd7066290a327c9);
+            
+        
+
+        marker_a66ee0006706f2c205466b7d26e535f7.bindPopup(popup_e2be64ca6bf9d8812ce1f42fb38fbd27)
+        ;
+
+        
+    
+    
+            var marker_09d506b30b3387df84b04bd056839f8b = L.marker(
+                [50.15207412641946, 18.913728296756748],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_0b4250ed7aead23d7850c078a09a5b1e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_09d506b30b3387df84b04bd056839f8b.setIcon(icon_0b4250ed7aead23d7850c078a09a5b1e);
+        
+    
+        var popup_78c4287e92e3b05c14310d5d0dbded2a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_73fb41f039a9ffd39be0d17d2cddefd1 = $(`<div id="html_73fb41f039a9ffd39be0d17d2cddefd1" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 262 cm)</div>`)[0];
+                popup_78c4287e92e3b05c14310d5d0dbded2a.setContent(html_73fb41f039a9ffd39be0d17d2cddefd1);
+            
+        
+
+        marker_09d506b30b3387df84b04bd056839f8b.bindPopup(popup_78c4287e92e3b05c14310d5d0dbded2a)
+        ;
+
+        
+    
+    
+            var marker_727c1fb1c7c9f3c90fe92a45019eee6d = L.marker(
+                [50.15201110992157, 18.913750648525824],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_ea7701c567cfc955de5dbf88a2998972 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_727c1fb1c7c9f3c90fe92a45019eee6d.setIcon(icon_ea7701c567cfc955de5dbf88a2998972);
+        
+    
+        var popup_c04f391819dc0b8037f56fd489971955 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ea0fec076eed4759263a417b277fd82f = $(`<div id="html_ea0fec076eed4759263a417b277fd82f" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 317 cm)</div>`)[0];
+                popup_c04f391819dc0b8037f56fd489971955.setContent(html_ea0fec076eed4759263a417b277fd82f);
+            
+        
+
+        marker_727c1fb1c7c9f3c90fe92a45019eee6d.bindPopup(popup_c04f391819dc0b8037f56fd489971955)
+        ;
+
+        
+    
+    
+            var marker_e33fc9b16a576ddcfecc652b3f7dcf97 = L.marker(
+                [50.15194007300536, 18.91375243663788],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_a727397f9f0be177f4f1802cbbafc82a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkpurple", "prefix": "glyphicon"}
+            );
+            marker_e33fc9b16a576ddcfecc652b3f7dcf97.setIcon(icon_a727397f9f0be177f4f1802cbbafc82a);
+        
+    
+        var popup_2c8a26065311fe1ce6f1d29e52900a3b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8d6185fa0967fa3cdf1df2671b8a51ea = $(`<div id="html_8d6185fa0967fa3cdf1df2671b8a51ea" style="width: 100.0%; height: 100.0%;">Lipa drobnolistna (Obwód: 172 cm)</div>`)[0];
+                popup_2c8a26065311fe1ce6f1d29e52900a3b.setContent(html_8d6185fa0967fa3cdf1df2671b8a51ea);
+            
+        
+
+        marker_e33fc9b16a576ddcfecc652b3f7dcf97.bindPopup(popup_2c8a26065311fe1ce6f1d29e52900a3b)
+        ;
+
+        
+    
+    
+            var marker_b8997982cf9720a692896cdbadbadb42 = L.marker(
+                [50.151861015635085, 18.9137247204917],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_813946c1787605c006e0b8d421afd2d5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_b8997982cf9720a692896cdbadbadb42.setIcon(icon_813946c1787605c006e0b8d421afd2d5);
+        
+    
+        var popup_f2e4f07fbc2ccbe6e61f2aee39c62edc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bc49c96914bfcf6fc1f0cd0a4435bebe = $(`<div id="html_bc49c96914bfcf6fc1f0cd0a4435bebe" style="width: 100.0%; height: 100.0%;">Robinia akacjowa (Obwód: 122 cm)</div>`)[0];
+                popup_f2e4f07fbc2ccbe6e61f2aee39c62edc.setContent(html_bc49c96914bfcf6fc1f0cd0a4435bebe);
+            
+        
+
+        marker_b8997982cf9720a692896cdbadbadb42.bindPopup(popup_f2e4f07fbc2ccbe6e61f2aee39c62edc)
+        ;
+
+        
+    
+    
+            var marker_466032aa326c3a6a2d3100680d161315 = L.marker(
+                [50.15178138539346, 18.913733661174778],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_04a417a8e55b2d90c7ffb88cc640f6a0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_466032aa326c3a6a2d3100680d161315.setIcon(icon_04a417a8e55b2d90c7ffb88cc640f6a0);
+        
+    
+        var popup_b9824293786e40c0ba4699d92117d91f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_421108d46359989f4753ecb529a7d217 = $(`<div id="html_421108d46359989f4753ecb529a7d217" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 245 cm)</div>`)[0];
+                popup_b9824293786e40c0ba4699d92117d91f.setContent(html_421108d46359989f4753ecb529a7d217);
+            
+        
+
+        marker_466032aa326c3a6a2d3100680d161315.bindPopup(popup_b9824293786e40c0ba4699d92117d91f)
+        ;
+
+        
+    
+    
+            var marker_b8486ddece857f20dfd260dc3be1a055 = L.marker(
+                [50.15171836845735, 18.913714885711677],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_d1d9b146f498fee555ea55ad8fb9cc33 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "gray", "prefix": "glyphicon"}
+            );
+            marker_b8486ddece857f20dfd260dc3be1a055.setIcon(icon_d1d9b146f498fee555ea55ad8fb9cc33);
+        
+    
+        var popup_8a5e486bbf871c6cb96c99ffa0a98d34 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d48ad4a19325a2c6ba4ac057b69f60f7 = $(`<div id="html_d48ad4a19325a2c6ba4ac057b69f60f7" style="width: 100.0%; height: 100.0%;">Klon zwyczajny  (Obwód: 165 cm)</div>`)[0];
+                popup_8a5e486bbf871c6cb96c99ffa0a98d34.setContent(html_d48ad4a19325a2c6ba4ac057b69f60f7);
+            
+        
+
+        marker_b8486ddece857f20dfd260dc3be1a055.bindPopup(popup_8a5e486bbf871c6cb96c99ffa0a98d34)
+        ;
+
+        
+    
+    
+            var marker_f23216b738217ed700a3ef656ccae234 = L.marker(
+                [50.15166337182119, 18.91368538141251],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_6bd526e601da6bcf878030bafba4b8ab = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_f23216b738217ed700a3ef656ccae234.setIcon(icon_6bd526e601da6bcf878030bafba4b8ab);
+        
+    
+        var popup_14431f4b02c78251946272ae34afbcf2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1f15d455948e4a822d7696ea78dfb365 = $(`<div id="html_1f15d455948e4a822d7696ea78dfb365" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 202 cm)</div>`)[0];
+                popup_14431f4b02c78251946272ae34afbcf2.setContent(html_1f15d455948e4a822d7696ea78dfb365);
+            
+        
+
+        marker_f23216b738217ed700a3ef656ccae234.bindPopup(popup_14431f4b02c78251946272ae34afbcf2)
+        ;
+
+        
+    
+    
+            var marker_fa982231b3db73146ff482e3486ec912 = L.marker(
+                [50.151641145817, 18.913659900426865],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_f0bb8bad0f91a18f17aced567e397c4c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_fa982231b3db73146ff482e3486ec912.setIcon(icon_f0bb8bad0f91a18f17aced567e397c4c);
+        
+    
+        var popup_c85032d7361ed204c7c5f03708bc0537 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_adf3ae47e39b94da614980d70daaf82e = $(`<div id="html_adf3ae47e39b94da614980d70daaf82e" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 202 cm)</div>`)[0];
+                popup_c85032d7361ed204c7c5f03708bc0537.setContent(html_adf3ae47e39b94da614980d70daaf82e);
+            
+        
+
+        marker_fa982231b3db73146ff482e3486ec912.bindPopup(popup_c85032d7361ed204c7c5f03708bc0537)
+        ;
+
+        
+    
+    
+            var marker_7f6ae12d0a423665b8cd0f37953960d1 = L.marker(
+                [50.15162023557634, 18.913644701249275],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_a2cd3209c24900124865639043e0b8c0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_7f6ae12d0a423665b8cd0f37953960d1.setIcon(icon_a2cd3209c24900124865639043e0b8c0);
+        
+    
+        var popup_62f6cbdc232cee598090a4229ec76396 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0d49c66da365f34b2f70601f9179acc2 = $(`<div id="html_0d49c66da365f34b2f70601f9179acc2" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 198 cm)</div>`)[0];
+                popup_62f6cbdc232cee598090a4229ec76396.setContent(html_0d49c66da365f34b2f70601f9179acc2);
+            
+        
+
+        marker_7f6ae12d0a423665b8cd0f37953960d1.bindPopup(popup_62f6cbdc232cee598090a4229ec76396)
+        ;
+
+        
+    
+    
+            var marker_61334cfad97420619e67edaf1339fdaa = L.marker(
+                [50.15161886155132, 18.913643136620525],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_52f97173f3631a436b51cd122cb95215 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_61334cfad97420619e67edaf1339fdaa.setIcon(icon_52f97173f3631a436b51cd122cb95215);
+        
+    
+        var popup_ce1d740ce359857c11c946ad2ebb4a09 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_99504d9d77ebae6157fc33c4341d7f9e = $(`<div id="html_99504d9d77ebae6157fc33c4341d7f9e" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 310 cm)</div>`)[0];
+                popup_ce1d740ce359857c11c946ad2ebb4a09.setContent(html_99504d9d77ebae6157fc33c4341d7f9e);
+            
+        
+
+        marker_61334cfad97420619e67edaf1339fdaa.bindPopup(popup_ce1d740ce359857c11c946ad2ebb4a09)
+        ;
+
+        
+    
+    
+            var marker_dfdef74b8931c691a5f06e1c04d40e49 = L.marker(
+                [50.15161556746816, 18.913718461997178],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_f65c0f1d1f3c4f33f55a6e9d567d21b2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_dfdef74b8931c691a5f06e1c04d40e49.setIcon(icon_f65c0f1d1f3c4f33f55a6e9d567d21b2);
+        
+    
+        var popup_d79b6e5e4e7e7f982d8ed50643fe38e4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_dda9c14e68b14247d866efdee7ca41a8 = $(`<div id="html_dda9c14e68b14247d866efdee7ca41a8" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 200 cm)</div>`)[0];
+                popup_d79b6e5e4e7e7f982d8ed50643fe38e4.setContent(html_dda9c14e68b14247d866efdee7ca41a8);
+            
+        
+
+        marker_dfdef74b8931c691a5f06e1c04d40e49.bindPopup(popup_d79b6e5e4e7e7f982d8ed50643fe38e4)
+        ;
+
+        
+    
+    
+            var marker_6233861aad492c8efe14411d4edff668 = L.marker(
+                [50.15165288986613, 18.91374036669731],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_76ad2c27f641551ae903ff6c35aad787 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_6233861aad492c8efe14411d4edff668.setIcon(icon_76ad2c27f641551ae903ff6c35aad787);
+        
+    
+        var popup_74122f293649680a118cf63f36936c5b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d8685902b9310c4e0e397d2fdc1730ff = $(`<div id="html_d8685902b9310c4e0e397d2fdc1730ff" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 197 cm)</div>`)[0];
+                popup_74122f293649680a118cf63f36936c5b.setContent(html_d8685902b9310c4e0e397d2fdc1730ff);
+            
+        
+
+        marker_6233861aad492c8efe14411d4edff668.bindPopup(popup_74122f293649680a118cf63f36936c5b)
+        ;
+
+        
+    
+    
+            var marker_0d01a07e54201eb053b145a42943f44b = L.marker(
+                [50.151689267847, 18.91376629473143],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_5d5c1a3ff6580349aee13e2cb360bc00 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_0d01a07e54201eb053b145a42943f44b.setIcon(icon_5d5c1a3ff6580349aee13e2cb360bc00);
+        
+    
+        var popup_600f6a783dfe26cb8dbb7f7567d8a29b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4300d5033c1e2ee67fcec4b48a47ae1f = $(`<div id="html_4300d5033c1e2ee67fcec4b48a47ae1f" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 212 cm)</div>`)[0];
+                popup_600f6a783dfe26cb8dbb7f7567d8a29b.setContent(html_4300d5033c1e2ee67fcec4b48a47ae1f);
+            
+        
+
+        marker_0d01a07e54201eb053b145a42943f44b.bindPopup(popup_600f6a783dfe26cb8dbb7f7567d8a29b)
+        ;
+
+        
+    
+    
+            var marker_320aae7a5d7a2bf71cd6dfafff69353b = L.marker(
+                [50.151733666145184, 18.913802057504657],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_4706f54d77f6b10e1e78bc577173eee3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_320aae7a5d7a2bf71cd6dfafff69353b.setIcon(icon_4706f54d77f6b10e1e78bc577173eee3);
+        
+    
+        var popup_78721f7ece4410c4c5d8077bbb46d00b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4071217e7f5376fe0826f86e80e9635a = $(`<div id="html_4071217e7f5376fe0826f86e80e9635a" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 179 cm)</div>`)[0];
+                popup_78721f7ece4410c4c5d8077bbb46d00b.setContent(html_4071217e7f5376fe0826f86e80e9635a);
+            
+        
+
+        marker_320aae7a5d7a2bf71cd6dfafff69353b.bindPopup(popup_78721f7ece4410c4c5d8077bbb46d00b)
+        ;
+
+        
+    
+    
+            var marker_a1f90e753f749bf11869146045c37068 = L.marker(
+                [50.15177118986089, 18.913810998197963],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_90088cbfd664dc71f66ab8f7af24a557 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_a1f90e753f749bf11869146045c37068.setIcon(icon_90088cbfd664dc71f66ab8f7af24a557);
+        
+    
+        var popup_fbd93fae2c7001370f333a78b4bb13b5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_25a4a37061c0490da2d3e3729f18b448 = $(`<div id="html_25a4a37061c0490da2d3e3729f18b448" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 274 cm)</div>`)[0];
+                popup_fbd93fae2c7001370f333a78b4bb13b5.setContent(html_25a4a37061c0490da2d3e3729f18b448);
+            
+        
+
+        marker_a1f90e753f749bf11869146045c37068.bindPopup(popup_fbd93fae2c7001370f333a78b4bb13b5)
+        ;
+
+        
+    
+    
+            var marker_6698df5aadb239ef2da3f036c441bda6 = L.marker(
+                [50.1518213169015, 18.913827985497846],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_f599726d6bae6ebcf2ec3c68b1cb28fb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_6698df5aadb239ef2da3f036c441bda6.setIcon(icon_f599726d6bae6ebcf2ec3c68b1cb28fb);
+        
+    
+        var popup_685e6dc1cd84caf79a6977bf996871d7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_97db9c4b7dca74b03fe5d9446297f533 = $(`<div id="html_97db9c4b7dca74b03fe5d9446297f533" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 243 cm)</div>`)[0];
+                popup_685e6dc1cd84caf79a6977bf996871d7.setContent(html_97db9c4b7dca74b03fe5d9446297f533);
+            
+        
+
+        marker_6698df5aadb239ef2da3f036c441bda6.bindPopup(popup_685e6dc1cd84caf79a6977bf996871d7)
+        ;
+
+        
+    
+    
+            var marker_8f83c840cf273a224aa3eb21a0de4486 = L.marker(
+                [50.15187717267509, 18.91383692622185],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_52d802cb367d5898ac1ceb3cf3978925 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_8f83c840cf273a224aa3eb21a0de4486.setIcon(icon_52d802cb367d5898ac1ceb3cf3978925);
+        
+    
+        var popup_7dd8777744bd0be7c1bc63c0cd00e8eb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cef4b3889e8818ea53426fcaf4f948b1 = $(`<div id="html_cef4b3889e8818ea53426fcaf4f948b1" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 265 cm)</div>`)[0];
+                popup_7dd8777744bd0be7c1bc63c0cd00e8eb.setContent(html_cef4b3889e8818ea53426fcaf4f948b1);
+            
+        
+
+        marker_8f83c840cf273a224aa3eb21a0de4486.bindPopup(popup_7dd8777744bd0be7c1bc63c0cd00e8eb)
+        ;
+
+        
+    
+    
+            var marker_65ec4e47ae971084ebb8dc492fd2400a = L.marker(
+                [50.15195897799679, 18.913874030181432],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_1d108c64b2a831b3c8cb045175fc227d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_65ec4e47ae971084ebb8dc492fd2400a.setIcon(icon_1d108c64b2a831b3c8cb045175fc227d);
+        
+    
+        var popup_14f2862aca64612dd7b22fd28f302d9a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_38f4c7b250059e3e45c66e465fb9817a = $(`<div id="html_38f4c7b250059e3e45c66e465fb9817a" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 206 cm)</div>`)[0];
+                popup_14f2862aca64612dd7b22fd28f302d9a.setContent(html_38f4c7b250059e3e45c66e465fb9817a);
+            
+        
+
+        marker_65ec4e47ae971084ebb8dc492fd2400a.bindPopup(popup_14f2862aca64612dd7b22fd28f302d9a)
+        ;
+
+        
+    
+    
+            var marker_f6694396076d5e14075994b05e004c7d = L.marker(
+                [50.15449756923044, 18.912666140779496],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_0d55bc0178777355a44fdabf0bbca806 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_f6694396076d5e14075994b05e004c7d.setIcon(icon_0d55bc0178777355a44fdabf0bbca806);
+        
+    
+        var popup_730656c926f55ef5ff2c5a28990493cb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c8795eb5a93b76749a8145269bdff1b9 = $(`<div id="html_c8795eb5a93b76749a8145269bdff1b9" style="width: 100.0%; height: 100.0%;">Kasztanowiec pospolity (Obwód: 180 cm)</div>`)[0];
+                popup_730656c926f55ef5ff2c5a28990493cb.setContent(html_c8795eb5a93b76749a8145269bdff1b9);
+            
+        
+
+        marker_f6694396076d5e14075994b05e004c7d.bindPopup(popup_730656c926f55ef5ff2c5a28990493cb)
+        ;
+
+        
+    
+    
+            var marker_3e9de14001d5d9d0df8fb8750d568448 = L.marker(
+                [50.15447722513285, 18.91267374574],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_6d7d9182cb558379557722cf4dda537f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_3e9de14001d5d9d0df8fb8750d568448.setIcon(icon_6d7d9182cb558379557722cf4dda537f);
+        
+    
+        var popup_8fa2d76bc8eb650b7fd0339db26188a7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0b38c831c95146349f1704bf1a467623 = $(`<div id="html_0b38c831c95146349f1704bf1a467623" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 72 cm)</div>`)[0];
+                popup_8fa2d76bc8eb650b7fd0339db26188a7.setContent(html_0b38c831c95146349f1704bf1a467623);
+            
+        
+
+        marker_3e9de14001d5d9d0df8fb8750d568448.bindPopup(popup_8fa2d76bc8eb650b7fd0339db26188a7)
+        ;
+
+        
+    
+    
+            var marker_8126a438f0b6d8f1166cd11c95e649df = L.marker(
+                [50.154418513204, 18.91271352364129],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_33ba2fea9520e04f15a62d865e8e0f41 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_8126a438f0b6d8f1166cd11c95e649df.setIcon(icon_33ba2fea9520e04f15a62d865e8e0f41);
+        
+    
+        var popup_c6ac3191cbfe10ee8e41a5472396d28e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6c2c0f1b03554a7d8a2d026abc62c0be = $(`<div id="html_6c2c0f1b03554a7d8a2d026abc62c0be" style="width: 100.0%; height: 100.0%;">Kasztanowiec pospolity (Obwód: 204 cm)</div>`)[0];
+                popup_c6ac3191cbfe10ee8e41a5472396d28e.setContent(html_6c2c0f1b03554a7d8a2d026abc62c0be);
+            
+        
+
+        marker_8126a438f0b6d8f1166cd11c95e649df.bindPopup(popup_c6ac3191cbfe10ee8e41a5472396d28e)
+        ;
+
+        
+    
+    
+            var marker_58d02b06c8d86bb2523a3f450dbf72a5 = L.marker(
+                [50.15439044489094, 18.91272380948067],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_233b37e56a09fde8f2865de6c11526be = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_58d02b06c8d86bb2523a3f450dbf72a5.setIcon(icon_233b37e56a09fde8f2865de6c11526be);
+        
+    
+        var popup_a2b1431c12b354447e13718877a65673 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7f6294036b600c804e39b4a7dbe67743 = $(`<div id="html_7f6294036b600c804e39b4a7dbe67743" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 249 cm)</div>`)[0];
+                popup_a2b1431c12b354447e13718877a65673.setContent(html_7f6294036b600c804e39b4a7dbe67743);
+            
+        
+
+        marker_58d02b06c8d86bb2523a3f450dbf72a5.bindPopup(popup_a2b1431c12b354447e13718877a65673)
+        ;
+
+        
+    
+    
+            var marker_9501ca203adff5ec991151a6d7fdfa0a = L.marker(
+                [50.152435556746674, 18.91374573111534],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_f7f22f7353f1d33b3c53d0c290fb6cef = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_9501ca203adff5ec991151a6d7fdfa0a.setIcon(icon_f7f22f7353f1d33b3c53d0c290fb6cef);
+        
+    
+        var popup_336330d3fba9e4ccb0d961f98b2078fa = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_002a64f822d7d2a84a7213f4525bd4c3 = $(`<div id="html_002a64f822d7d2a84a7213f4525bd4c3" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 413 cm)</div>`)[0];
+                popup_336330d3fba9e4ccb0d961f98b2078fa.setContent(html_002a64f822d7d2a84a7213f4525bd4c3);
+            
+        
+
+        marker_9501ca203adff5ec991151a6d7fdfa0a.bindPopup(popup_336330d3fba9e4ccb0d961f98b2078fa)
+        ;
+
+        
+    
+    
+            var marker_e3eec1febbe5d0ac52053cc02b185811 = L.marker(
+                [50.15432771785317, 18.912770077586178],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_4547824dc59e7ddbd26e96154a9e2bd4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_e3eec1febbe5d0ac52053cc02b185811.setIcon(icon_4547824dc59e7ddbd26e96154a9e2bd4);
+        
+    
+        var popup_d8795cb28f084dfd57b33db1f296cabb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b52f0f994def3455ddc7bb1cc8e1b0b5 = $(`<div id="html_b52f0f994def3455ddc7bb1cc8e1b0b5" style="width: 100.0%; height: 100.0%;">Robinia akacjowa (Obwód: 134 cm)</div>`)[0];
+                popup_d8795cb28f084dfd57b33db1f296cabb.setContent(html_b52f0f994def3455ddc7bb1cc8e1b0b5);
+            
+        
+
+        marker_e3eec1febbe5d0ac52053cc02b185811.bindPopup(popup_d8795cb28f084dfd57b33db1f296cabb)
+        ;
+
+        
+    
+    
+            var marker_96d38967abc8c467a92f75d8908c8556 = L.marker(
+                [50.15429076901159, 18.91280293464661],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_1bf7c728d2ce5f0b7782fc2cb396b866 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_96d38967abc8c467a92f75d8908c8556.setIcon(icon_1bf7c728d2ce5f0b7782fc2cb396b866);
+        
+    
+        var popup_0c8b79e52eb84b65e351c578996d899b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_26bb9798fdf4d0ee2fb016a41ce36f9b = $(`<div id="html_26bb9798fdf4d0ee2fb016a41ce36f9b" style="width: 100.0%; height: 100.0%;">Robinia akacjowa (Obwód: 159 cm)</div>`)[0];
+                popup_0c8b79e52eb84b65e351c578996d899b.setContent(html_26bb9798fdf4d0ee2fb016a41ce36f9b);
+            
+        
+
+        marker_96d38967abc8c467a92f75d8908c8556.bindPopup(popup_0c8b79e52eb84b65e351c578996d899b)
+        ;
+
+        
+    
+    
+            var marker_806c4c67e0d69cb930c10160c55e12c5 = L.marker(
+                [50.15425467941781, 18.912819027900696],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_f3cce78ce64aa6b9bd782c3db347156a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_806c4c67e0d69cb930c10160c55e12c5.setIcon(icon_f3cce78ce64aa6b9bd782c3db347156a);
+        
+    
+        var popup_9098d788befff33f39e9067e6289bb4d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_55f80a83a122467c4dabf335009de75e = $(`<div id="html_55f80a83a122467c4dabf335009de75e" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 228 cm)</div>`)[0];
+                popup_9098d788befff33f39e9067e6289bb4d.setContent(html_55f80a83a122467c4dabf335009de75e);
+            
+        
+
+        marker_806c4c67e0d69cb930c10160c55e12c5.bindPopup(popup_9098d788befff33f39e9067e6289bb4d)
+        ;
+
+        
+    
+    
+            var marker_07163e2b52ce161c1ea5320b0da90d13 = L.marker(
+                [50.15424479773856, 18.91282171010971],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_ede90801512c56171a7bd933b1834f68 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_07163e2b52ce161c1ea5320b0da90d13.setIcon(icon_ede90801512c56171a7bd933b1834f68);
+        
+    
+        var popup_e49d0faa0017047d44a213fcf0cb2d67 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9b03f9430f5273cef92280c1f0364c37 = $(`<div id="html_9b03f9430f5273cef92280c1f0364c37" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 131 cm)</div>`)[0];
+                popup_e49d0faa0017047d44a213fcf0cb2d67.setContent(html_9b03f9430f5273cef92280c1f0364c37);
+            
+        
+
+        marker_07163e2b52ce161c1ea5320b0da90d13.bindPopup(popup_e49d0faa0017047d44a213fcf0cb2d67)
+        ;
+
+        
+    
+    
+            var marker_85a43ad123a8ce1966dceb505fdb5e46 = L.marker(
+                [50.1542392124407, 18.912831097841263],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_93f321ec5d86ba3b31e74ec26724bfed = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_85a43ad123a8ce1966dceb505fdb5e46.setIcon(icon_93f321ec5d86ba3b31e74ec26724bfed);
+        
+    
+        var popup_ee7794f5069dbdceefeecc17c7029ccf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4f47e5c92ff675c7ccd95cb43b1c0110 = $(`<div id="html_4f47e5c92ff675c7ccd95cb43b1c0110" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 112 cm)</div>`)[0];
+                popup_ee7794f5069dbdceefeecc17c7029ccf.setContent(html_4f47e5c92ff675c7ccd95cb43b1c0110);
+            
+        
+
+        marker_85a43ad123a8ce1966dceb505fdb5e46.bindPopup(popup_ee7794f5069dbdceefeecc17c7029ccf)
+        ;
+
+        
+    
+    
+            var marker_a5e6bc5a26e0a62462459076a7ba859e = L.marker(
+                [50.154232338227054, 18.91282707452774],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_63f4640d64da2d776659b86c7fbec049 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_a5e6bc5a26e0a62462459076a7ba859e.setIcon(icon_63f4640d64da2d776659b86c7fbec049);
+        
+    
+        var popup_94bb9689b7aa5eaa5de4a2da875a8b4f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6af2a17b025ebc1144abc10f5a08efad = $(`<div id="html_6af2a17b025ebc1144abc10f5a08efad" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 124 cm)</div>`)[0];
+                popup_94bb9689b7aa5eaa5de4a2da875a8b4f.setContent(html_6af2a17b025ebc1144abc10f5a08efad);
+            
+        
+
+        marker_a5e6bc5a26e0a62462459076a7ba859e.bindPopup(popup_94bb9689b7aa5eaa5de4a2da875a8b4f)
+        ;
+
+        
+    
+    
+            var marker_fd9f0c568caad918b17748ab6404f0ee = L.marker(
+                [50.15418765581425, 18.91284584999085],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_7d65af95deed2960e033f0a0e9f72258 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_fd9f0c568caad918b17748ab6404f0ee.setIcon(icon_7d65af95deed2960e033f0a0e9f72258);
+        
+    
+        var popup_395b4e89e630f7605d9015a06aaa8071 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_702f71068e30f025b2698370442b9a28 = $(`<div id="html_702f71068e30f025b2698370442b9a28" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 350 cm)</div>`)[0];
+                popup_395b4e89e630f7605d9015a06aaa8071.setContent(html_702f71068e30f025b2698370442b9a28);
+            
+        
+
+        marker_fd9f0c568caad918b17748ab6404f0ee.bindPopup(popup_395b4e89e630f7605d9015a06aaa8071)
+        ;
+
+        
+    
+    
+            var marker_fed0ed86429f0a4f7e98aed65d5b3572 = L.marker(
+                [50.15415328469908, 18.912869989871982],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_c5db98f3bfd410972e5dbd0eac1a7c82 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_fed0ed86429f0a4f7e98aed65d5b3572.setIcon(icon_c5db98f3bfd410972e5dbd0eac1a7c82);
+        
+    
+        var popup_d86e67a6c77545a700f5245c2fdf81e6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f4dbc462df03cac977bb16c096126d6b = $(`<div id="html_f4dbc462df03cac977bb16c096126d6b" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 220 cm)</div>`)[0];
+                popup_d86e67a6c77545a700f5245c2fdf81e6.setContent(html_f4dbc462df03cac977bb16c096126d6b);
+            
+        
+
+        marker_fed0ed86429f0a4f7e98aed65d5b3572.bindPopup(popup_d86e67a6c77545a700f5245c2fdf81e6)
+        ;
+
+        
+    
+    
+            var marker_5cec4f9c577484769a949009196ea833 = L.marker(
+                [50.1541343805752, 18.91287535429001],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_9b11f03a890294893c75771455da0aa9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_5cec4f9c577484769a949009196ea833.setIcon(icon_9b11f03a890294893c75771455da0aa9);
+        
+    
+        var popup_8e04524ecd85f52a19656abea6d00159 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e882391efde36b80ae2a713c22ac31f5 = $(`<div id="html_e882391efde36b80ae2a713c22ac31f5" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 193 cm)</div>`)[0];
+                popup_8e04524ecd85f52a19656abea6d00159.setContent(html_e882391efde36b80ae2a713c22ac31f5);
+            
+        
+
+        marker_5cec4f9c577484769a949009196ea833.bindPopup(popup_8e04524ecd85f52a19656abea6d00159)
+        ;
+
+        
+    
+    
+            var marker_fcb9581c3005b26bff43b1ef3996874b = L.marker(
+                [50.15411719500152, 18.912883400917057],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_af6c848c37e3b572caee40e0625c97a8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_fcb9581c3005b26bff43b1ef3996874b.setIcon(icon_af6c848c37e3b572caee40e0625c97a8);
+        
+    
+        var popup_ede58efd13ad90aae1afb802b10a3e6e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7b54a6c673c5696a56a8d7bd1d08bc3f = $(`<div id="html_7b54a6c673c5696a56a8d7bd1d08bc3f" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 382 cm)</div>`)[0];
+                popup_ede58efd13ad90aae1afb802b10a3e6e.setContent(html_7b54a6c673c5696a56a8d7bd1d08bc3f);
+            
+        
+
+        marker_fcb9581c3005b26bff43b1ef3996874b.bindPopup(popup_ede58efd13ad90aae1afb802b10a3e6e)
+        ;
+
+        
+    
+    
+            var marker_9280d66a75f33cd9922ebb5ce93fc5d7 = L.marker(
+                [50.15409786122378, 18.912890776991848],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_b61eb6415aaa5cd4092a0e66fcd8099d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_9280d66a75f33cd9922ebb5ce93fc5d7.setIcon(icon_b61eb6415aaa5cd4092a0e66fcd8099d);
+        
+    
+        var popup_6233707d5222297c3932e73ec107828f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7fffbbe17dde59543b59005e028db933 = $(`<div id="html_7fffbbe17dde59543b59005e028db933" style="width: 100.0%; height: 100.0%;">Robinia akacjowa (Obwód: 70 cm)</div>`)[0];
+                popup_6233707d5222297c3932e73ec107828f.setContent(html_7fffbbe17dde59543b59005e028db933);
+            
+        
+
+        marker_9280d66a75f33cd9922ebb5ce93fc5d7.bindPopup(popup_6233707d5222297c3932e73ec107828f)
+        ;
+
+        
+    
+    
+            var marker_f00deefcc36d6ddd988062de7f66944c = L.marker(
+                [50.15407680887912, 18.912906199693683],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_6828d6b38a7fe3dbf53e99745566f995 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_f00deefcc36d6ddd988062de7f66944c.setIcon(icon_6828d6b38a7fe3dbf53e99745566f995);
+        
+    
+        var popup_09b74abafdfc178a2c98c7b6c182ae3e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a09686eeba9c09fcb5d4c19961a42b6c = $(`<div id="html_a09686eeba9c09fcb5d4c19961a42b6c" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 163 cm)</div>`)[0];
+                popup_09b74abafdfc178a2c98c7b6c182ae3e.setContent(html_a09686eeba9c09fcb5d4c19961a42b6c);
+            
+        
+
+        marker_f00deefcc36d6ddd988062de7f66944c.bindPopup(popup_09b74abafdfc178a2c98c7b6c182ae3e)
+        ;
+
+        
+    
+    
+            var marker_49b34f7dfee07a8570d11753f1079314 = L.marker(
+                [50.15398486587748, 18.912953138351444],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_e87280f1f58c043afdbafe9a055fd066 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_49b34f7dfee07a8570d11753f1079314.setIcon(icon_e87280f1f58c043afdbafe9a055fd066);
+        
+    
+        var popup_249a6079503394973e9725f7d966b778 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_612641056f3f4d53a235fdf16d7ccc59 = $(`<div id="html_612641056f3f4d53a235fdf16d7ccc59" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 362 cm)</div>`)[0];
+                popup_249a6079503394973e9725f7d966b778.setContent(html_612641056f3f4d53a235fdf16d7ccc59);
+            
+        
+
+        marker_49b34f7dfee07a8570d11753f1079314.bindPopup(popup_249a6079503394973e9725f7d966b778)
+        ;
+
+        
+    
+    
+            var marker_64ea0e8153880ebcb4bac1960f598f0e = L.marker(
+                [50.15395393174374, 18.912969231605533],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_20d69bb3973a210980fd388e9279dbb3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_64ea0e8153880ebcb4bac1960f598f0e.setIcon(icon_20d69bb3973a210980fd388e9279dbb3);
+        
+    
+        var popup_ed4a7a5765e7316cd1a80cf58f99bf1d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_21b8f1c2029d94bcf1889353a7b72727 = $(`<div id="html_21b8f1c2029d94bcf1889353a7b72727" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 147 cm)</div>`)[0];
+                popup_ed4a7a5765e7316cd1a80cf58f99bf1d.setContent(html_21b8f1c2029d94bcf1889353a7b72727);
+            
+        
+
+        marker_64ea0e8153880ebcb4bac1960f598f0e.bindPopup(popup_ed4a7a5765e7316cd1a80cf58f99bf1d)
+        ;
+
+        
+    
+    
+            var marker_0c745a7994e9c89d4c2752f727e894a3 = L.marker(
+                [50.153830195008574, 18.91306042671204],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_303bea293d0401f0a51de756cb71d2ce = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_0c745a7994e9c89d4c2752f727e894a3.setIcon(icon_303bea293d0401f0a51de756cb71d2ce);
+        
+    
+        var popup_1737a6d76bb4bf730f34fa26efbea3ed = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d67461dbda25b9b3de1ab5ab6f0a3e03 = $(`<div id="html_d67461dbda25b9b3de1ab5ab6f0a3e03" style="width: 100.0%; height: 100.0%;">Kasztanowiec pospolity (Obwód: 190 cm)</div>`)[0];
+                popup_1737a6d76bb4bf730f34fa26efbea3ed.setContent(html_d67461dbda25b9b3de1ab5ab6f0a3e03);
+            
+        
+
+        marker_0c745a7994e9c89d4c2752f727e894a3.bindPopup(popup_1737a6d76bb4bf730f34fa26efbea3ed)
+        ;
+
+        
+    
+    
+            var marker_4a35b0d34b8af4f00f67561b2f4a1d2b = L.marker(
+                [50.15377777865616, 18.913087248802185],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_b12f26904eb44a8d0e87be351b0612df = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_4a35b0d34b8af4f00f67561b2f4a1d2b.setIcon(icon_b12f26904eb44a8d0e87be351b0612df);
+        
+    
+        var popup_833b060f7c6baeb0cecf2dac5a4a8d30 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a11fce9d0af3826576b9cf9863be8290 = $(`<div id="html_a11fce9d0af3826576b9cf9863be8290" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 370 cm)</div>`)[0];
+                popup_833b060f7c6baeb0cecf2dac5a4a8d30.setContent(html_a11fce9d0af3826576b9cf9863be8290);
+            
+        
+
+        marker_4a35b0d34b8af4f00f67561b2f4a1d2b.bindPopup(popup_833b060f7c6baeb0cecf2dac5a4a8d30)
+        ;
+
+        
+    
+    
+            var marker_d824edd3c9cbd8348ad61070ff691ef4 = L.marker(
+                [50.15371848795877, 18.913106024265293],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_7125ba0dec5af64b90120d3ab79c372c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_d824edd3c9cbd8348ad61070ff691ef4.setIcon(icon_7125ba0dec5af64b90120d3ab79c372c);
+        
+    
+        var popup_ad7403f77ef73c20bf673d851665e454 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a55c4687c79b653c9e02a589e3ee92d2 = $(`<div id="html_a55c4687c79b653c9e02a589e3ee92d2" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 330 cm)</div>`)[0];
+                popup_ad7403f77ef73c20bf673d851665e454.setContent(html_a55c4687c79b653c9e02a589e3ee92d2);
+            
+        
+
+        marker_d824edd3c9cbd8348ad61070ff691ef4.bindPopup(popup_ad7403f77ef73c20bf673d851665e454)
+        ;
+
+        
+    
+    
+            var marker_09eddeed9f2c340f7aca1a905b857d30 = L.marker(
+                [50.1536514636036, 18.91314625740052],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_4fd6928167c6a126feeaf63260e41761 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_09eddeed9f2c340f7aca1a905b857d30.setIcon(icon_4fd6928167c6a126feeaf63260e41761);
+        
+    
+        var popup_e5db172bfffc86e9f3cb147e8ec2d645 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5d27890fc77af6965bb96f035a3ee2a9 = $(`<div id="html_5d27890fc77af6965bb96f035a3ee2a9" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 238 cm)</div>`)[0];
+                popup_e5db172bfffc86e9f3cb147e8ec2d645.setContent(html_5d27890fc77af6965bb96f035a3ee2a9);
+            
+        
+
+        marker_09eddeed9f2c340f7aca1a905b857d30.bindPopup(popup_e5db172bfffc86e9f3cb147e8ec2d645)
+        ;
+
+        
+    
+    
+            var marker_4c4008d05e60063221c972a89d3eb158 = L.marker(
+                [50.15360935851195, 18.913167715072635],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_9b73a3d91c9c58c817af6d77038adcc4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_4c4008d05e60063221c972a89d3eb158.setIcon(icon_9b73a3d91c9c58c817af6d77038adcc4);
+        
+    
+        var popup_ee9560e5144a13a1518564bab85569dc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9e5b2de1ca83debde07e822d9cea0aeb = $(`<div id="html_9e5b2de1ca83debde07e822d9cea0aeb" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 320 cm)</div>`)[0];
+                popup_ee9560e5144a13a1518564bab85569dc.setContent(html_9e5b2de1ca83debde07e822d9cea0aeb);
+            
+        
+
+        marker_4c4008d05e60063221c972a89d3eb158.bindPopup(popup_ee9560e5144a13a1518564bab85569dc)
+        ;
+
+        
+    
+    
+            var marker_10b805013d610665ef603e167e231dd8 = L.marker(
+                [50.153571549826594, 18.9131797850132],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_8cfe03c77f59d95c8e789b13635128ec = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_10b805013d610665ef603e167e231dd8.setIcon(icon_8cfe03c77f59d95c8e789b13635128ec);
+        
+    
+        var popup_c5f30b262c44d1f5d90be9b8f9612aa6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a587515fbe95c7629552ed87e78a35a0 = $(`<div id="html_a587515fbe95c7629552ed87e78a35a0" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 216 cm)</div>`)[0];
+                popup_c5f30b262c44d1f5d90be9b8f9612aa6.setContent(html_a587515fbe95c7629552ed87e78a35a0);
+            
+        
+
+        marker_10b805013d610665ef603e167e231dd8.bindPopup(popup_c5f30b262c44d1f5d90be9b8f9612aa6)
+        ;
+
+        
+    
+    
+            var marker_9d6f3d49d3530728e606fdf0666a1594 = L.marker(
+                [50.15350710313494, 18.913215994834903],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_2c166bf3e392e8272652d184f42e89b5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_9d6f3d49d3530728e606fdf0666a1594.setIcon(icon_2c166bf3e392e8272652d184f42e89b5);
+        
+    
+        var popup_c7fb1a3861646eed10ab04df9774e61a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5b7cef902b35a8192df4f1a12c47836f = $(`<div id="html_5b7cef902b35a8192df4f1a12c47836f" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 167 cm)</div>`)[0];
+                popup_c7fb1a3861646eed10ab04df9774e61a.setContent(html_5b7cef902b35a8192df4f1a12c47836f);
+            
+        
+
+        marker_9d6f3d49d3530728e606fdf0666a1594.bindPopup(popup_c7fb1a3861646eed10ab04df9774e61a)
+        ;
+
+        
+    
+    
+            var marker_dce3783726ab0c78e83d7bada328fed7 = L.marker(
+                [50.153464138625615, 18.91325488686562],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_b9bec713a88dfb8533fa7b42ff2f163a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_dce3783726ab0c78e83d7bada328fed7.setIcon(icon_b9bec713a88dfb8533fa7b42ff2f163a);
+        
+    
+        var popup_7bddd34de1a21c429977a0f3b0b8a2c3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2d57836bafbd6b87af785b81cd199fdf = $(`<div id="html_2d57836bafbd6b87af785b81cd199fdf" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 346 cm)</div>`)[0];
+                popup_7bddd34de1a21c429977a0f3b0b8a2c3.setContent(html_2d57836bafbd6b87af785b81cd199fdf);
+            
+        
+
+        marker_dce3783726ab0c78e83d7bada328fed7.bindPopup(popup_7bddd34de1a21c429977a0f3b0b8a2c3)
+        ;
+
+        
+    
+    
+            var marker_fe2ff71fe082d1f056ac71e2eee9ff43 = L.marker(
+                [50.15341773691211, 18.91330718994141],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_30fd0b085a4bb599d1665015a257c804 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_fe2ff71fe082d1f056ac71e2eee9ff43.setIcon(icon_30fd0b085a4bb599d1665015a257c804);
+        
+    
+        var popup_9e5fa8b226a425ef01eb3d140f321101 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c1708465a89dc033a7f41406e1d978e3 = $(`<div id="html_c1708465a89dc033a7f41406e1d978e3" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 175 cm)</div>`)[0];
+                popup_9e5fa8b226a425ef01eb3d140f321101.setContent(html_c1708465a89dc033a7f41406e1d978e3);
+            
+        
+
+        marker_fe2ff71fe082d1f056ac71e2eee9ff43.bindPopup(popup_9e5fa8b226a425ef01eb3d140f321101)
+        ;
+
+        
+    
+    
+            var marker_dcf8bbe562b2328e7fd7a81f52920e00 = L.marker(
+                [50.153372194445865, 18.913299143314365],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_43035e72702b0d42817966f66e4a9df1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_dcf8bbe562b2328e7fd7a81f52920e00.setIcon(icon_43035e72702b0d42817966f66e4a9df1);
+        
+    
+        var popup_66e0ed26cc8c5b3040a42d22e308c1e4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9670b8abc0ec5465c822c0f3243e4d5e = $(`<div id="html_9670b8abc0ec5465c822c0f3243e4d5e" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 146 cm)</div>`)[0];
+                popup_66e0ed26cc8c5b3040a42d22e308c1e4.setContent(html_9670b8abc0ec5465c822c0f3243e4d5e);
+            
+        
+
+        marker_dcf8bbe562b2328e7fd7a81f52920e00.bindPopup(popup_66e0ed26cc8c5b3040a42d22e308c1e4)
+        ;
+
+        
+    
+    
+            var marker_f5f5bc1b0936567071603b155a7d0d09 = L.marker(
+                [50.152283458801605, 18.91396164894104],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_3757041f30e3ed7297b875d58b65b564 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "pink", "prefix": "glyphicon"}
+            );
+            marker_f5f5bc1b0936567071603b155a7d0d09.setIcon(icon_3757041f30e3ed7297b875d58b65b564);
+        
+    
+        var popup_9809d1faf1de348f6da48256681a5190 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_080395c9366684adee387be6f408f4f7 = $(`<div id="html_080395c9366684adee387be6f408f4f7" style="width: 100.0%; height: 100.0%;">Dąb szypułkowy (Obwód: 418 cm)</div>`)[0];
+                popup_9809d1faf1de348f6da48256681a5190.setContent(html_080395c9366684adee387be6f408f4f7);
+            
+        
+
+        marker_f5f5bc1b0936567071603b155a7d0d09.bindPopup(popup_9809d1faf1de348f6da48256681a5190)
+        ;
+
+        
+    
+    
+            var marker_2b6a5ecf2cd477f59606fd70b1a6d77e = L.marker(
+                [50.15221986968681, 18.913991153240207],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_14969d179b60270b074b07bbb3221827 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_2b6a5ecf2cd477f59606fd70b1a6d77e.setIcon(icon_14969d179b60270b074b07bbb3221827);
+        
+    
+        var popup_d3f23816adc9821af30133571553efb6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4946fb09622ee6ef884af02d1cdd741a = $(`<div id="html_4946fb09622ee6ef884af02d1cdd741a" style="width: 100.0%; height: 100.0%;">Klon zwyczajny (Obwód: 75 cm)</div>`)[0];
+                popup_d3f23816adc9821af30133571553efb6.setContent(html_4946fb09622ee6ef884af02d1cdd741a);
+            
+        
+
+        marker_2b6a5ecf2cd477f59606fd70b1a6d77e.bindPopup(popup_d3f23816adc9821af30133571553efb6)
+        ;
+
+        
+    
+    
+            var marker_99ad0e85f301d9470917aae53a27fd98 = L.marker(
+                [50.15215971774364, 18.914052844047543],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_c31ce8f92809d537318d28ca92aaf7d4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_99ad0e85f301d9470917aae53a27fd98.setIcon(icon_c31ce8f92809d537318d28ca92aaf7d4);
+        
+    
+        var popup_e1622c07a332be9453477f466c842211 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0192038e68f71333ec48cd9ae84c6848 = $(`<div id="html_0192038e68f71333ec48cd9ae84c6848" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 112 cm)</div>`)[0];
+                popup_e1622c07a332be9453477f466c842211.setContent(html_0192038e68f71333ec48cd9ae84c6848);
+            
+        
+
+        marker_99ad0e85f301d9470917aae53a27fd98.bindPopup(popup_e1622c07a332be9453477f466c842211)
+        ;
+
+        
+    
+    
+            var marker_0759be05cd8ee0873818f6a7df963c17 = L.marker(
+                [50.15208409805058, 18.91411185264588],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_cc37f7d6d22868f452e6979f53474967 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_0759be05cd8ee0873818f6a7df963c17.setIcon(icon_cc37f7d6d22868f452e6979f53474967);
+        
+    
+        var popup_ea9a9412dcdb28429a18bfa93439817f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_500c82a11717d704110f490ee3249e72 = $(`<div id="html_500c82a11717d704110f490ee3249e72" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 120 cm)</div>`)[0];
+                popup_ea9a9412dcdb28429a18bfa93439817f.setContent(html_500c82a11717d704110f490ee3249e72);
+            
+        
+
+        marker_0759be05cd8ee0873818f6a7df963c17.bindPopup(popup_ea9a9412dcdb28429a18bfa93439817f)
+        ;
+
+        
+    
+    
+            var marker_40562107b988aab9350fbd21d34f1f6b = L.marker(
+                [50.15197754282556, 18.914165496826172],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_662c31fbefafc346bfdc8b104dc8030d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_40562107b988aab9350fbd21d34f1f6b.setIcon(icon_662c31fbefafc346bfdc8b104dc8030d);
+        
+    
+        var popup_10a487ce2d5bfa92336ec0aad29a63a0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7942ab268f50aa6d50582e5b85b1d083 = $(`<div id="html_7942ab268f50aa6d50582e5b85b1d083" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 295 cm)</div>`)[0];
+                popup_10a487ce2d5bfa92336ec0aad29a63a0.setContent(html_7942ab268f50aa6d50582e5b85b1d083);
+            
+        
+
+        marker_40562107b988aab9350fbd21d34f1f6b.bindPopup(popup_10a487ce2d5bfa92336ec0aad29a63a0)
+        ;
+
+        
+    
+    
+            var marker_19c2a53802c3250ee2218e6efcaa89ef = L.marker(
+                [50.15193242864665, 18.9142194762826],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_aea1742052edb10d80b6644b78f9871e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_19c2a53802c3250ee2218e6efcaa89ef.setIcon(icon_aea1742052edb10d80b6644b78f9871e);
+        
+    
+        var popup_bea2ca994808766896f9d20b3e4df256 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5705eed939b9fe0e1e6ff626ad50a6f6 = $(`<div id="html_5705eed939b9fe0e1e6ff626ad50a6f6" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 300 cm)</div>`)[0];
+                popup_bea2ca994808766896f9d20b3e4df256.setContent(html_5705eed939b9fe0e1e6ff626ad50a6f6);
+            
+        
+
+        marker_19c2a53802c3250ee2218e6efcaa89ef.bindPopup(popup_bea2ca994808766896f9d20b3e4df256)
+        ;
+
+        
+    
+    
+            var marker_b4a62dcfa232391e738a6c9c3b99fc72 = L.marker(
+                [50.15189332965716, 18.914280831813816],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_3df46f408b11c56b8e05071c58e65f83 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_b4a62dcfa232391e738a6c9c3b99fc72.setIcon(icon_3df46f408b11c56b8e05071c58e65f83);
+        
+    
+        var popup_ec943ba6d7440f07527b45fbf37f3aed = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_19825508b3a007c5671737dd8ff46cc0 = $(`<div id="html_19825508b3a007c5671737dd8ff46cc0" style="width: 100.0%; height: 100.0%;">Olsza czarna (Obwód: 415 cm)</div>`)[0];
+                popup_ec943ba6d7440f07527b45fbf37f3aed.setContent(html_19825508b3a007c5671737dd8ff46cc0);
+            
+        
+
+        marker_b4a62dcfa232391e738a6c9c3b99fc72.bindPopup(popup_ec943ba6d7440f07527b45fbf37f3aed)
+        ;
+
+        
+    
+    
+            var marker_26929b10e481833f6c514b5935dc57e0 = L.marker(
+                [50.151850363697775, 18.914318382740024],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_79bf5c6b0508beca3e6572dfc2d793ea = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_26929b10e481833f6c514b5935dc57e0.setIcon(icon_79bf5c6b0508beca3e6572dfc2d793ea);
+        
+    
+        var popup_6ef3396564e90a2cac4c6b16729a9547 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0e14fd6fd734b83b009829161d1a544d = $(`<div id="html_0e14fd6fd734b83b009829161d1a544d" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 165 cm)</div>`)[0];
+                popup_6ef3396564e90a2cac4c6b16729a9547.setContent(html_0e14fd6fd734b83b009829161d1a544d);
+            
+        
+
+        marker_26929b10e481833f6c514b5935dc57e0.bindPopup(popup_6ef3396564e90a2cac4c6b16729a9547)
+        ;
+
+        
+    
+    
+            var marker_4021bab6b8917370eb2f73baa4c92677 = L.marker(
+                [50.15177989944081, 18.914380073547367],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_e2b52d6e28aecca70c90086ae766f618 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "gray", "prefix": "glyphicon"}
+            );
+            marker_4021bab6b8917370eb2f73baa4c92677.setIcon(icon_e2b52d6e28aecca70c90086ae766f618);
+        
+    
+        var popup_5d5c191be3a1a5cbfb0d2a43278e910f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4267fe99d54efd9ae0f2163c42362ad2 = $(`<div id="html_4267fe99d54efd9ae0f2163c42362ad2" style="width: 100.0%; height: 100.0%;">Jesion wyniosły  (Obwód: 128 cm)</div>`)[0];
+                popup_5d5c191be3a1a5cbfb0d2a43278e910f.setContent(html_4267fe99d54efd9ae0f2163c42362ad2);
+            
+        
+
+        marker_4021bab6b8917370eb2f73baa4c92677.bindPopup(popup_5d5c191be3a1a5cbfb0d2a43278e910f)
+        ;
+
+        
+    
+    
+            var marker_bfc707fb2fc091617f118b29da445781 = L.marker(
+                [50.15177216555262, 18.91438946127892],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_763b03236a8914c831301063be7d8359 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_bfc707fb2fc091617f118b29da445781.setIcon(icon_763b03236a8914c831301063be7d8359);
+        
+    
+        var popup_32a8d2c39bd044bde62ed9a3a46af9e3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3b11ebbc8ceba2e861d50e95b3c51768 = $(`<div id="html_3b11ebbc8ceba2e861d50e95b3c51768" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 129 cm)</div>`)[0];
+                popup_32a8d2c39bd044bde62ed9a3a46af9e3.setContent(html_3b11ebbc8ceba2e861d50e95b3c51768);
+            
+        
+
+        marker_bfc707fb2fc091617f118b29da445781.bindPopup(popup_32a8d2c39bd044bde62ed9a3a46af9e3)
+        ;
+
+        
+    
+    
+            var marker_343b7209f4d4e49e55a05849b785d4d9 = L.marker(
+                [50.15174724523776, 18.914413601160053],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_733725263336882fdb2ba765ebddc734 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_343b7209f4d4e49e55a05849b785d4d9.setIcon(icon_733725263336882fdb2ba765ebddc734);
+        
+    
+        var popup_056f53dd53f4f3e6a732244944365889 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_39065273204688fff3372eecb20cd435 = $(`<div id="html_39065273204688fff3372eecb20cd435" style="width: 100.0%; height: 100.0%;">Brzoza brodawkowata (Obwód: 202 cm)</div>`)[0];
+                popup_056f53dd53f4f3e6a732244944365889.setContent(html_39065273204688fff3372eecb20cd435);
+            
+        
+
+        marker_343b7209f4d4e49e55a05849b785d4d9.bindPopup(popup_056f53dd53f4f3e6a732244944365889)
+        ;
+
+        
+    
+    
+            var marker_4181092e42e62c7c5390c6ab9554934e = L.marker(
+                [50.15171545033441, 18.914444446563724],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_3b93289d9d03992339cd25b9435001d7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_4181092e42e62c7c5390c6ab9554934e.setIcon(icon_3b93289d9d03992339cd25b9435001d7);
+        
+    
+        var popup_39039ff4a02918b62f2c0b6bfce11567 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a5ad5a9388cc5ddd1a3e8343426b59bf = $(`<div id="html_a5ad5a9388cc5ddd1a3e8343426b59bf" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 280 cm)</div>`)[0];
+                popup_39039ff4a02918b62f2c0b6bfce11567.setContent(html_a5ad5a9388cc5ddd1a3e8343426b59bf);
+            
+        
+
+        marker_4181092e42e62c7c5390c6ab9554934e.bindPopup(popup_39039ff4a02918b62f2c0b6bfce11567)
+        ;
+
+        
+    
+    
+            var marker_d65e54334f124b7f3b04997bf9841200 = L.marker(
+                [50.15166646895542, 18.9144766330719],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_850a19e47fafca93f1ae6d76a40a9f20 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_d65e54334f124b7f3b04997bf9841200.setIcon(icon_850a19e47fafca93f1ae6d76a40a9f20);
+        
+    
+        var popup_49605d5121ae3b6999d0d8bc4722b74d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ea133f861667bf8f0f1468117e76b108 = $(`<div id="html_ea133f861667bf8f0f1468117e76b108" style="width: 100.0%; height: 100.0%;">Olsza czarna (Obwód: 134 cm)</div>`)[0];
+                popup_49605d5121ae3b6999d0d8bc4722b74d.setContent(html_ea133f861667bf8f0f1468117e76b108);
+            
+        
+
+        marker_d65e54334f124b7f3b04997bf9841200.bindPopup(popup_49605d5121ae3b6999d0d8bc4722b74d)
+        ;
+
+        
+    
+    
+            var marker_962c82581d53153e8683205dd0ad7eab = L.marker(
+                [50.1516552977567, 18.914495408535007],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_c600544294f57d7f2950fcfd15bad391 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_962c82581d53153e8683205dd0ad7eab.setIcon(icon_c600544294f57d7f2950fcfd15bad391);
+        
+    
+        var popup_9cd13eb675d8b6ad7616c8718f23af71 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e9d96cfa86fc9f73e8cbd9ce209264d5 = $(`<div id="html_e9d96cfa86fc9f73e8cbd9ce209264d5" style="width: 100.0%; height: 100.0%;">Olsza czarna (Obwód: 85 cm)</div>`)[0];
+                popup_9cd13eb675d8b6ad7616c8718f23af71.setContent(html_e9d96cfa86fc9f73e8cbd9ce209264d5);
+            
+        
+
+        marker_962c82581d53153e8683205dd0ad7eab.bindPopup(popup_9cd13eb675d8b6ad7616c8718f23af71)
+        ;
+
+        
+    
+    
+            var marker_5e43395a1ad000a22753f9c7f1094c4f = L.marker(
+                [50.15219065303815, 18.91385972499848],
+                {}
+            ).addTo(map_88e6be1ac2033a378c0617fbb119fdd9);
+        
+    
+            var icon_153900f1124b89bd938dd0fb74c81b56 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_5e43395a1ad000a22753f9c7f1094c4f.setIcon(icon_153900f1124b89bd938dd0fb74c81b56);
+        
+    
+        var popup_261bab90c6e4716469742c924eabebf3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e206e6d2c6c4b988d01116f560e2f568 = $(`<div id="html_e206e6d2c6c4b988d01116f560e2f568" style="width: 100.0%; height: 100.0%;">Jesion wyniosły (Obwód: 300 cm)</div>`)[0];
+                popup_261bab90c6e4716469742c924eabebf3.setContent(html_e206e6d2c6c4b988d01116f560e2f568);
+            
+        
+
+        marker_5e43395a1ad000a22753f9c7f1094c4f.bindPopup(popup_261bab90c6e4716469742c924eabebf3)
+        ;
+
+        
+    
+</script>
+</html>
